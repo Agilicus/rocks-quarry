@@ -32,7 +32,7 @@ class DeleteHandler:
         return visitors.children_visitor(key, it, create_builder)
 
     def handle_collection(self, key):
-        it = self.database.iteritems()
+        it = self.database.iterkeys()
         it.seek(key)
         result = self.delete_children(key.decode("utf-8"), it)
 
@@ -63,4 +63,4 @@ class DeleteHandler:
             return (404, b"Key not found")
 
         num = self.bulk_delete(result)
-        return (200, f'"total": {num}, "deleted:" {json.dumps(result)}')
+        return (200, '{"total": %u, "deleted" : %s}' % (num, json.dumps(result)))
