@@ -134,3 +134,8 @@ listening on port 80, you can do the following:
 ```text
 $docker run -ti -p 80:8080 -e PORT=8080 -e DBDIR=/tmp/test --rm --name test-server rocks-quarry
 ```
+
+## License
+
+rocks-quarry is licensed under the Apache2 license. See the LICENSE file under
+the root directory for details.
