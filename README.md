@@ -33,14 +33,14 @@ The API is fairly straightforward. It supports three operations:
 3. DELETE
 
 A major semantic of the API is that it distinguishes between paths ending with "/" and paths *not* ending with
-a "/". Paths not ending with "/" are simple objects. Paths ending with "/" are colletions, which slightly modifies the behaviour of operations on them. This will probably be simplified in the future.
+a "/". Paths not ending with "/" are simple objects. Paths ending with "/" are collections, which slightly modifies the behaviour of operations on them. This will probably be simplified in the future.
 
 All accesses are at path `/api/$API_VERSION/$object_path`. For example, if you want to access object "foo" in
 the current version, you would access: `/api/v1alpha/foo`.
 
 Paths are case sensitive.
 
-Currently data is stored as unicode strings. In the future I want to use headers to indicate the data form to
+Currently data is stored as unicode strings. In the future I want to use headers to indicate the data format to
 allow binary data transer and storage.
 
 ### Version
@@ -84,7 +84,7 @@ Put allows you to create or replace a single object. Currently creation or modif
 
 #### Creating a Collection
 
-This examples creates the collection we retrieved earlier.
+This example creates the collection we retrieved earlier.
 
 ```text
 curl -X PUT  lcalhost:8080/api/v1alpha/agilicus/ -d ''
@@ -102,13 +102,13 @@ provided path could not be found.
 
 #### Deleting a Single Obejct
 
-This examples creates and deletes an object. It then shows how it has been deleted by failing to access
+This example creates and deletes an object. It then shows how it has been deleted by failing to access
 it.
 
 ```text
 $ curl -X PUT  localhost:8080/api/v1alpha/agilicus/foo -d 'bar'
 $ curl -X DELETE  localhost:8080/api/v1alpha/agilicus/foo
-{"total": 1, "deleted" : ["agilicus/foo"]}kyle@khazad-dum:~/go/src/istio.io
+{"total": 1, "deleted" : ["agilicus/foo"]}
 $ curl localhost:8080/api/v1alpha/agilicus/foo
 {"error": "key not found"}`
 ```
