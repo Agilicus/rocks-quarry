@@ -9,7 +9,7 @@ later.
 ## Installation
 
 Install `python-rocksdb` according to the installation instructions for your system.
-See [python-docksbd](https://python-rocksdb.readthedocs.io).
+See [python-rocksbd](https://python-rocksdb.readthedocs.io).
 
 Then, simply clone the package and use it directly. I may eventually package it up into a proper
 module.
@@ -132,7 +132,7 @@ The container uses two environment variables to control execution. PORT and DATA
 listening on port 80, you can do the following:
 
 ```text
-$docker run -ti -p 80:8080 -e PORT=8080 -e DBDIR=/tmp/test --rm --name test-server rocks-quarry
+$docker run -ti -p 80:8080 -e PORT=8080 -e DATA_DIR=/tmp/test --rm --name test-server rocks-quarry
 ```
 
 ## License
